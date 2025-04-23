@@ -2,7 +2,7 @@ package fat32
 
 import (
 	"encoding/binary"
-	"slices"
+	"golang.org/x/exp/slices"
 )
 
 // table a FAT32 table

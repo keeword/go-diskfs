@@ -1,6 +1,6 @@
 module github.com/diskfs/go-diskfs
 
-go 1.22
+go 1.20
 
 require (
 	github.com/djherbis/times v1.6.0
@@ -13,6 +13,7 @@ require (
 	github.com/pkg/xattr v0.4.9
 	github.com/sirupsen/logrus v1.9.4-0.20230606125235-dd1b4c2e81af
 	github.com/ulikunitz/xz v0.5.11
+	golang.org/x/exp v0.0.0-20230713183714-613f0c0eb8a1
 	golang.org/x/sys v0.19.0
 )
 

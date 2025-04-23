@@ -1,11 +1,10 @@
 package ext4
 
 import (
-	"cmp"
 	"encoding/binary"
 	"fmt"
-	"slices"
 
+	"golang.org/x/exp/slices"
 	"github.com/diskfs/go-diskfs/filesystem/ext4/crc"
 )
 
@@ -126,8 +125,8 @@ func (gds *groupDescriptors) byFreeBlocks() []groupDescriptor {
 	copy(gdSlice, gds.descriptors)
 
 	// sort the slice
-	slices.SortFunc(gdSlice, func(a, b groupDescriptor) int {
-		return cmp.Compare(a.freeBlocks, b.freeBlocks)
+	slices.SortFunc(gdSlice, func(a, b groupDescriptor) bool {
+		return a.freeBlocks < b.freeBlocks
 	})
 
 	return gdSlice

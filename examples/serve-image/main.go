@@ -12,6 +12,7 @@ import (
 	"github.com/diskfs/go-diskfs/filesystem/fat32"
 	"github.com/diskfs/go-diskfs/filesystem/iso9660"
 	"github.com/diskfs/go-diskfs/filesystem/squashfs"
+	"github.com/diskfs/go-diskfs/filesystem/ext4"
 )
 
 func serve(filename, addr, fsType *string) error {
@@ -30,6 +31,8 @@ func serve(filename, addr, fsType *string) error {
 		fs, err = fat32.Read(b, 0, 0, 0)
 	case "squashfs":
 		fs, err = squashfs.Read(b, 0, 0, 0)
+	case "ext4":
+		fs, err = ext4.Read(b, 0, 0, 0)
 	default:
 		return fmt.Errorf("unknown filesystem type %q", *fsType)
 	}
